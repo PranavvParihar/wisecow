@@ -3,6 +3,10 @@
 ## Overview 🌐
 The Wisecow app is deployed on an **AWS Lightsail** instance running a **single-node K3s cluster**. The deployment process is fully automated, ensuring that every push triggers the building and deployment of a new Docker image to the cluster.
 
+## URL 🔗  
+You can view the app here: [wisecow.pranavparihar.site](https://wisecow.pranavparihar.site)
+
+
 ## Features ✨
 
 - **Deployment**:  
@@ -16,12 +20,10 @@ The Wisecow app is deployed on an **AWS Lightsail** instance running a **single-
 
 - **Time Taken**:  
   The entire setup was completed in approximately **10 hours**. ⏱️
-
-- **URL**:  
-  You can view the app here: [wisecow.pranavparihar.site](https://wisecow.pranavparihar.site) 🌟
+  
 
 ## Backup & System Health 💾⚙️
-The **backup and system health scripts** are stored in a separate directory for easy access and management.
+The **backup and system health scripts** are stored in a separate directory.
 
 ## Technologies Used 🛠️
 - **AWS Lightsail** ☁️
