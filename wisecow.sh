@@ -28,7 +28,7 @@ prerequisites() {
 	command -v cowsay >/dev/null 2>&1 &&
 	command -v fortune >/dev/null 2>&1 || 
 		{ 
-			echo "Install prerequisites. testing"
+			echo "Install prerequisites. testing 123"
 			exit 1
 		}
 }
