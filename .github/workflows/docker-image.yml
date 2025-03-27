@@ -1,13 +1,11 @@
-name: Docker Image Push Trigger
+name: CI/CD for Wisecow
 
 on:
   push:
     branches: ["main"]
-    paths:
-      - "wisecow.sh"   # Runs only if this file changes
 
 jobs:
-  build:
+  Build-and-Push-Docker-Image-to-DockerHub:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -21,3 +19,25 @@ jobs:
 
       - name: Push Docker Image
         run: docker push pranavparihar/wisecow:latest
+
+  Deploy-Wisecow:
+    name: Deploy Wisecow to AWS K3S Cluster
+    runs-on: ubuntu-latest
+    needs: Build-and-Push-Docker-Image-to-DockerHub  # Runs only if Docker image push job succeeds
+    steps:
+      - name: Set up SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.AWS_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.AWS_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy Wisecow to AWS Server
+        run: |
+          ssh -o ServerAliveInterval=60 -i ~/.ssh/id_rsa ${{ secrets.AWS_USER }}@${{ secrets.AWS_HOST }} << 'EOF'
+            echo "🚀 Deploying Wisecow to AWS Server..."
+            sudo -i
+            kubectl set image deployment/wisecow wisecow=pranavparihar/wisecow:latest --record
+            kubectl rollout status deployment/wisecow
+            echo "Deployed Wisecow to AWS Server..."
+          EOF
