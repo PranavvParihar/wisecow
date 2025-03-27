@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wisecow
+  namespace: wisecow
+spec:
+  replicas: 2  # Ensures at least one pod is always running
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0  # Ensures no downtime
+      maxSurge: 1        # Allows one extra pod during update
+  selector:
+    matchLabels:
+      app: wisecow
+  template:
+    metadata:
+      labels:
+        app: wisecow
+    spec:
+      containers:
+        - name: wisecow
+          image: pranavparihar/wisecow:latest  # Replace with your registry
+          imagePullPolicy: Always  # Ensures it always pulls the latest image
+          ports:
+            - containerPort: 4499
