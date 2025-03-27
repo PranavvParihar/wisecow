@@ -1,0 +1,11 @@
+• Deployment: Wisecow app hosted on an AWS Lightsail instance with a single-node K3s cluster.
+
+• Automation: On each push, a new Docker image is built and deployed to the cluster.
+
+• Process: New pods are created with the updated image, and old pods are deleted.
+
+• Time Taken: Completed the setup in approximately 10 hours.
+
+• URL: wisecow.pranavparihar.site
+
+•**URL**: [wisecow.pranavparihar.site](https://wisecow.pranavparihar.site)
