@@ -3,6 +3,8 @@ name: CI/CD for Wisecow App
 on:
   push:
     branches: ["main"]
+    paths:
+      - "wisecow.sh"
 
 jobs:
   Build-and-Push-Docker-Image-to-DockerHub:
