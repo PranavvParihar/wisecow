@@ -38,7 +38,7 @@ jobs:
             echo "🚀 Deploying Wisecow to AWS Server..."
             sudo -i
             kubectl config set-context --current --namespace=wisecow
-            kubectl set image deployment/wisecow wisecow=pranavparihar/wisecow:latest
+            kubectl rollout restart deployment/wisecow
             kubectl rollout status deployment/wisecow
             echo "Deployed Wisecow to AWS Server..."
           EOF
