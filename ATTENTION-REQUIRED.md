@@ -19,7 +19,7 @@ You can view the app here: [wisecow.pranavparihar.site](https://wisecow.pranavpa
   New pods are created with the updated Docker image, and old pods are deleted seamlessly. ⚡️
 
 - **Time Taken**:  
-  The entire setup was completed in approximately **10 hours**. ⏱️
+  The entire setup was completed in approximately **7.5 hours**. ⏱️
   
 
 ## Backup & System Health 💾⚙️
