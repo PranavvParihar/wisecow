@@ -36,6 +36,3 @@ The **backup and system health scripts** are stored in a separate directory.
 2. Set up **AWS Lightsail** and configure **K3s** on the instance.  
 3. Automate Docker build and deployment using **CI/CD** pipelines (GitHub Actions).  
 4. Check the deployed application at [wisecow.pranavparihar.site](https://wisecow.pranavparihar.site). 🌍
-
-## License 📜
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
