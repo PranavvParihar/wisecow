@@ -37,7 +37,8 @@ jobs:
           ssh -o ServerAliveInterval=60 -i ~/.ssh/id_rsa ${{ secrets.AWS_USER }}@${{ secrets.AWS_HOST }} << 'EOF'
             echo "🚀 Deploying Wisecow to AWS Server..."
             sudo -i
-            kubectl set image deployment/wisecow wisecow=pranavparihar/wisecow:latest --record
+            kubectl config set-context --current --namespace=wisecow
+            kubectl set image deployment/wisecow wisecow=pranavparihar/wisecow:latest
             kubectl rollout status deployment/wisecow
             echo "Deployed Wisecow to AWS Server..."
           EOF
