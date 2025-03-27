@@ -35,7 +35,8 @@ prerequisites() {
 
 main() {
 	prerequisites
-	echo "Wisdom served on port=$SRVPORT..."
+ 	RANDOM_NUM=$(shuf -i 1000-9999 -n 1)  # Generate a random number between 1000 and 9999
+	echo "Wisdom served on port=$SRVPORT...  Instance ID: $RANDOM_NUM"
 
 	while [ 1 ]; do
 		cat $RSPFILE | nc -lN $SRVPORT | handleRequest
